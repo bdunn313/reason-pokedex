@@ -3,6 +3,12 @@ type t = {
   url: string,
 };
 
+let getId = pokemon => pokemon.url.[String.length(pokemon.url) - 2];
+let getAvatarUrl = pokemon =>
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
+  ++ String.make(1, getId(pokemon))
+  ++ ".png";
+
 type pokemonResponse = {
   count: option(int),
   next: option(string),

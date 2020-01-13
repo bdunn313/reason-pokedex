@@ -5,6 +5,7 @@ var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Pokemon$ReasonPokedex = require("./Pokemon.bs.js");
+var PokemonCard$ReasonPokedex = require("./PokemonCard.bs.js");
 
 function App(Props) {
   var match = React.useState((function () {
@@ -32,10 +33,11 @@ function App(Props) {
         }), ([]));
   return React.createElement(React.Fragment, undefined, typeof state === "number" ? (
                 state !== 0 ? "Error!" : "Loading..."
-              ) : Belt_Array.mapWithIndex(state[0], (function (i, pkmn) {
-                      return React.createElement("div", {
-                                  key: pkmn.name + String(i)
-                                }, pkmn.name);
+              ) : Belt_Array.mapWithIndex(state[0], (function (i, pokemon) {
+                      return React.createElement(PokemonCard$ReasonPokedex.make, {
+                                  pokemon: pokemon,
+                                  key: pokemon.name + String(i)
+                                });
                     })));
 }
 

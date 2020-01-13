@@ -37,10 +37,8 @@ let make = () => {
      | Error => ReasonReact.string("Error!")
      | Loaded(data) =>
        data
-       ->Belt.Array.mapWithIndex((i, pkmn) =>
-           <div key={pkmn.name ++ string_of_int(i)}>
-             {ReasonReact.string(pkmn.name)}
-           </div>
+       ->Belt.Array.mapWithIndex((i, pokemon) =>
+           <PokemonCard key={pokemon.name ++ string_of_int(i)} pokemon />
          )
        ->React.array
      }}

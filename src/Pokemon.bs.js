@@ -1,6 +1,16 @@
 'use strict';
 
+var $$String = require("bs-platform/lib/js/string.js");
+var Caml_string = require("bs-platform/lib/js/caml_string.js");
 var Json_decode = require("@glennsl/bs-json/src/Json_decode.bs.js");
+
+function getId(pokemon) {
+  return Caml_string.get(pokemon.url, pokemon.url.length - 2 | 0);
+}
+
+function getAvatarUrl(pokemon) {
+  return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + ($$String.make(1, getId(pokemon)) + ".png");
+}
 
 function pokemon(json) {
   return {
@@ -31,5 +41,7 @@ var Decode = {
   pokemonResponse: pokemonResponse
 };
 
+exports.getId = getId;
+exports.getAvatarUrl = getAvatarUrl;
 exports.Decode = Decode;
 /* No side effect */
