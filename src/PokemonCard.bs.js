@@ -5,7 +5,10 @@ var Pokemon$ReasonPokedex = require("./Pokemon.bs.js");
 
 function PokemonCard(Props) {
   var pokemon = Props.pokemon;
-  return React.createElement("div", undefined, pokemon.name, React.createElement("br", undefined), React.createElement("img", {
+  console.log(pokemon.url, Pokemon$ReasonPokedex.getAvatarUrl(pokemon));
+  return React.createElement("div", {
+              className: "flex1 text-gray-700"
+            }, pokemon.name, React.createElement("br", undefined), React.createElement("img", {
                   src: Pokemon$ReasonPokedex.getAvatarUrl(pokemon)
                 }));
 }

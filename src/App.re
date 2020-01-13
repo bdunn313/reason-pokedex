@@ -31,7 +31,7 @@ let make = () => {
     None;
   });
 
-  <>
+  <div role="main" className="flex flex-wrap">
     {switch (state) {
      | Loading => ReasonReact.string("Loading...")
      | Error => ReasonReact.string("Error!")
@@ -42,5 +42,5 @@ let make = () => {
          )
        ->React.array
      }}
-  </>;
+  </div>;
 };

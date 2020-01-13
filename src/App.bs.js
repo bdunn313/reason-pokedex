@@ -31,7 +31,10 @@ function App(Props) {
                 }));
           return ;
         }), ([]));
-  return React.createElement(React.Fragment, undefined, typeof state === "number" ? (
+  return React.createElement("div", {
+              className: "flex flex-wrap",
+              role: "main"
+            }, typeof state === "number" ? (
                 state !== 0 ? "Error!" : "Loading..."
               ) : Belt_Array.mapWithIndex(state[0], (function (i, pokemon) {
                       return React.createElement(PokemonCard$ReasonPokedex.make, {
